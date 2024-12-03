@@ -1,4 +1,4 @@
-package home;
+package home.models;
 
 public class LivingRoom {
     private int numberOfTvs;
