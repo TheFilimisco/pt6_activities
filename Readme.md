@@ -72,3 +72,5 @@ La informació rellevant relativa als ferries és:
    - Fer un llistat de tots clients, detallant el seu DNI, nom i un resum de les dades
    de la factura actual (número de trucades, número de minuts totals, import
    total).
+     ![ModelRelationTelephony](src/telephony/modelRelation.png).
+

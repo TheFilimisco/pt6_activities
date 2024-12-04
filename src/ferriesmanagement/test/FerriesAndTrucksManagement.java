@@ -75,10 +75,8 @@ public class FerriesAndTrucksManagement {
 
 
         // Works!
-
         var petition9 = management.formatTextPrice(management.getPriceTotalTrucksEmbarked(ferry));
         System.out.println(petition9);
-
 
     }
 
