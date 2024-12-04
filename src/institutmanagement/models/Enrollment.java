@@ -1,11 +1,14 @@
 package institutmanagement.models;
 
+import java.util.ArrayList;
+
 public class Enrollment {
     private Student student;
     private Course course;
-    private int grade;
+    private double grade;
 
-    public Enrollment(Student student, Course course, int grade) {
+
+    public Enrollment(Student student, Course course, double grade) {
         this.student = student;
         this.course = course;
         this.grade = grade;
@@ -27,13 +30,14 @@ public class Enrollment {
         this.course = course;
     }
 
-    public int getGrade() {
+    public double getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(double grade) {
         this.grade = grade;
     }
+
 
     @Override
     public String toString() {
