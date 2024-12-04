@@ -1,6 +1,6 @@
 
 
-### 1. Casa - Sala - Cuina
+### 1. Casa - Sala - Cuina (_home_)
    Defineix tres classes: Casa, Sala, Cuina. 
    - La classe Sala té com atributs numeroDeTelevisions(int) i tipusSala(String) i
    disposa d'un constructor que l'inicialitza a 0 i "desconegut".
@@ -14,7 +14,7 @@
   cases de diferents tipologies i després mostra com es creen els resultats. (Pots fer
   ús del mètode toString() que pots definir a totes les classes).
 
-### 2. Gestió Institut
+### 2. Gestió Institut(_institutmanagement_)
 
    Es vol fer un mini gestor per un institut per controlar els alumnes, els mòduls als que
    està matriculat un alumne i les seves notes. Guardarem:
@@ -28,7 +28,7 @@
    - extreuModulsSuspesos: Donat el Dni d'un alumne, n'extreu els mòduls que
    ha suspès.
 
-### 3. Ferries - Camions
+### 3. Ferries - Camions (ferriesmanagement)
 
    Volem gestionar certa informació associada als ferries que transporten camions
    entre dos ports.
