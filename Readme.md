@@ -27,3 +27,30 @@
    d'aquest alumne.
    - extreuModulsSuspesos: Donat el Dni d'un alumne, n'extreu els mòduls que
    ha suspès.
+
+### 3. Ferries - Camions
+
+   Volem gestionar certa informació associada als ferries que transporten camions
+   entre dos ports.
+   La informació rellevant relativa als camions és: La matrícula del camió i el pes del
+   camió en Tm.
+   La informació rellevant relativa als ferries és:
+1. La matrícula del ferry.
+2. El nom del ferry.
+3. El nom del port destí del ferry.
+5. El preu en € que cobra el ferry al camió per cada Tm de pes.
+6. El pes màxim en Tm dels camions transportables pel ferry.
+7. Els camions carregats al ferry.
+   A partir de les dades anteriors, creem una classe gestioFerryCamio amb un menu i
+   les següents funcionalitats:
+1. Determinar el pes total dels camions embarcats. Ha de retornar la suma dels
+   pesos de camions que té el ferry embarcat
+2. Determinar si un camió està embarcat. A partir de la matrícula del camió s'ha
+   de descobrir si el camió està embarcat.
+3. Determinar si un camió pot embarcar. Calcular si és possible embarcar un
+   camió
+4. Embarcar un camió.
+5. Determinar el camió que ha embarcat en n-èsima posició. Donat un nombre
+   enter, determinar quina matrícula i pes té aquest camió.
+6. Determinar l'import del peatge d'un camió.
+7. Determinar el peatge total recaptat.
