@@ -30,26 +30,26 @@ public class FerriesAndTrucksManagement {
         //Works!
 //        var petition1 = management.totalWeightOfTrucksEmbark(ferry);
 
-        var petition1 = management.formatTextWeight(management.totalWeightOfTrucksEmbark(ferry));
+        String petition1 = management.formatTextWeight(management.totalWeightOfTrucksEmbark(ferry));
         System.out.println(petition1);
 
         //Works!
-        var petition2 = management.itsTruckEmbark("XXXX", ferry);
+        String petition2 = management.itsTruckEmbark("XXXX", ferry);
         System.out.println(petition2);
 
         //Works!
-        var petition3 = management.itsTruckEmbark("XXXX234", ferry);
+        String petition3 = management.itsTruckEmbark("XXXX234", ferry);
         System.out.println(petition3);
 
 
         // High of Weight!
         Truck truck3 = new Truck("XXX5",60);
-        var petition4 = management.itsPossibleTruckEmbark(truck3,ferry);
+        String petition4 = management.itsPossibleTruckEmbark(truck3,ferry);
         System.out.println(petition4);
 
         //Low of Weight!
         Truck truck4 = new Truck("XXX6",20);
-        var petition5 = management.itsPossibleTruckEmbark(truck4,ferry);
+        String petition5 = management.itsPossibleTruckEmbark(truck4,ferry);
         System.out.println(petition5);
 
         //Show Trucks List of ferry before the method
@@ -61,21 +61,21 @@ public class FerriesAndTrucksManagement {
 
 
         //Position correct
-        var petition6 = management.getTruckEmbarkPosition(0,ferry);
+        String petition6 = management.getTruckEmbarkPosition(0,ferry);
         System.out.println(petition6);
 
         //Position Incorrect
-        var petition7 = management.getTruckEmbarkPosition(6,ferry);
+        String petition7 = management.getTruckEmbarkPosition(6,ferry);
         System.out.println(petition7);
 
 
         // Works!
-        var petition8 = management.getPriceForTruckEmbarked(truck4,ferry);
+        String petition8 = management.getPriceForTruckEmbarked(truck4,ferry);
         System.out.println(petition8);
 
 
         // Works!
-        var petition9 = management.formatTextPrice(management.getPriceTotalTrucksEmbarked(ferry));
+        String petition9 = management.formatTextPrice(management.getPriceTotalTrucksEmbarked(ferry));
         System.out.println(petition9);
 
     }

@@ -6,6 +6,7 @@ import institutmanagement.models.InstituteManagement;
 import institutmanagement.models.Student;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class TestInstitute {
     public static void main(String[] args) {
@@ -68,11 +69,11 @@ public class TestInstitute {
 
 
         // Methods works! AverageGrades
-        var petition = instituteManagement.extractAverageGrades("54910978L");
+        Double petition = instituteManagement.extractAverageGrades("54910978L");
         System.out.println(petition);
 
         //Methods works! FailedCourse
-        var petition2 = instituteManagement.extractFailedCourse("54910978L");
+        ArrayList<Course> petition2 = instituteManagement.extractFailedCourse("54910978L");
         System.out.println(petition2);
 
 

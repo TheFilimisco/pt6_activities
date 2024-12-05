@@ -70,8 +70,8 @@ public class InstituteManagement {
         return  coursesFailed;
     }
 
-//    public ArrayList<Object> extractFailedCourse(String dni){
-//        var coursesFailed = new ArrayList<>();
+//    public ArrayList<Course> extractFailedCourse(String dni){
+//        var coursesFailed = new ArrayList<Course>();
 //        for (Enrollment enrollment:enrollments){
 //            if (enrollment.getStudent().getDni().equals(dni)) {
 //               if (enrollment.getGrade()<7) {
