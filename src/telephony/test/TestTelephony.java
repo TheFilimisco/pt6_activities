@@ -16,7 +16,6 @@ public class TestTelephony {
         Scanner input = new Scanner(System.in);
         ManagementTelephony managementTelephony = new ManagementTelephony(clients,calls,invoices);
 
-
         var runing = true;
 
         while (runing) {
@@ -25,15 +24,17 @@ public class TestTelephony {
                 ================Telephony================
                 1. Add Client
                 2. Add Call to Client
-                2. Get Invoice of a Client
-                3. Show List of Clients with their Invoice
-                4. Show All Clients
+                3. Get Invoice of a Client
+                4. Show List of Clients with their Invoice
+                5. Close
+                6. Show Clients, Calls and Invoices
                 ==========================================
                 """);
             System.out.print("Enter a number valid: ");
             int optionNumber = input.nextInt();
             switch (optionNumber) {
                 case 1:
+                    input.nextLine();
                     System.out.println("===========Add Client=========");
                     System.out.print("Enter your dni: ");
                     String dni = input.nextLine();
@@ -41,10 +42,9 @@ public class TestTelephony {
                     String name = input.nextLine();
                     System.out.print("Enter your price Call to Minute: ");
                     double priceCallForMinutes = input.nextDouble();
-                    System.out.println("Enter your new Number: ");
+                    System.out.print("Enter your new Number: ");
                     long number = input.nextLong();
                     managementTelephony.addNewClient(new Client(dni,name,priceCallForMinutes,number));
-                    System.out.println("Sucessfull!...");
                     break;
                 case 2:
                     System.out.println("=============Add Call to Client=============");
@@ -54,13 +54,34 @@ public class TestTelephony {
                     int destinationNumber = input.nextInt();
                     System.out.print("Enter your number: ");
                     long numberOwn = input.nextLong();
-                    managementTelephony.addCallToClient(new Call(seconds,destinationNumber),searchClient(numberOwn,clients));
+                    try {
+                        managementTelephony.addCallToClient(new Call(seconds,destinationNumber),searchClient(numberOwn,clients));
+
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
 //                    managementTelephony.addCallToClient(new Call(seconds,destinationNumber),numberOwn);
                     break;
                 case 3:
+                    System.out.println("======================Get Invoice of Client==================");
+                    System.out.print("Enter your number: ");
+                    long numberOwnForInvoice = input.nextLong();
+                    try {
+                        managementTelephony.getInvoiceOfClient(searchClient(numberOwnForInvoice,clients));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 4:
-                    System.out.println("==============Show All Clients========");
+                    System.out.println("======================Show List of Clients with their Invoices==================");
+                    managementTelephony.showListClientsResume();
+                    break;
+                case 5:
+                    runing = false;
+                    break;
+
+                case 6:
+                    System.out.println("==============Show All========");
                     for (Call call: calls) {
                         System.out.println(call);
                     }
@@ -72,14 +93,12 @@ public class TestTelephony {
                     }
 
                     break;
-                case 5:
-                    runing = false;
-                    break;
                 default:
                     System.out.println("Type Wright value!");
                     break;
             }
         }
+
 
 
 
@@ -135,8 +154,9 @@ public class TestTelephony {
                 return client;
             }
         }
-        return null;
+        throw new IllegalArgumentException("The Client with number: " + inputNumberClient + " Doesnt exist!");
     }
+
 
 
 }

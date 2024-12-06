@@ -58,10 +58,9 @@ public class ManagementTelephony {
             }
         }
         clients.add(client);
+        System.out.println("Successful!");
     }
 
-
-    // Commit for this because I took 10 hours to do this!
     public void addCallToClient(Call call, Client client ){
         if (invoices.isEmpty()) {
             invoices.add(new Invoice(client,call));
@@ -73,15 +72,15 @@ public class ManagementTelephony {
             if (invoice.getClient().equals(client)) {
                 invoice.getCalls().add(call);
                 calls.add(call);
-                System.out.println("Sucessfull!...");
+                System.out.println("Successful!...");
                 return;
-            } else {
-                System.out.println("Error, to write rigth values!");
-            }
+            } 
         }
         invoices.add(new Invoice(client,call));
         calls.add(call);
+        System.out.println("Invoice make for Client");
     }
+
 
     public void getInvoiceOfClient(Client client){
         double totalSeconds = 0;
