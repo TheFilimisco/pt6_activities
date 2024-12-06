@@ -89,9 +89,10 @@ treballen en empreses.
 - **La informació rellevant relativa als **contractes** és:**
   - El codi del contracte.
   - La data d'inici del contracte.
-  - La data de l'acabament del contracte. 4. L'empresa que ha atorgat el contracte.
+  - La data de l'acabament del contracte.  
+  - L'empresa que ha atorgat el contracte.
 - A partir de les dades anteriors, volem efectuar les operacions següents:
-  1. Determinar la suma total de les durades dels contractes en dies. 2. Determinar en
-     quantes empreses diferents ha treballat.
-  2. Signar un contracte per una empresa.
-  3. Determinar la durada d'un contracte en dies.
+  1. Determinar la suma total de les durades dels contractes en dies. 
+  2. Determinar en quantes empreses diferents ha treballat.
+  3. Signar un contracte per una empresa.
+  4. Determinar la durada d'un contracte en dies.
