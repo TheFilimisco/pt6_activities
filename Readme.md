@@ -72,5 +72,26 @@ La informació rellevant relativa als ferries és:
    - Fer un llistat de tots clients, detallant el seu DNI, nom i un resum de les dades
    de la factura actual (número de trucades, número de minuts totals, import
    total).
-     ![ModelRelationTelephony](src/telephony/modelRelation.png).
+     ![ModelRelationTelephony](src/telephony/modelRelation.png).  
 
+### 5. Contractes 
+
+Volem gestionar certa informació associada als contractes de persones que
+treballen en empreses. La informació rellevant relativa a les persones és:
+   1. El seu DNI.
+   2. El seu nom.
+   3. El seus contractes
+La informació rellevant relativa a les **empreses** és:
+   1. El seu CIF
+   2. El seu nom.
+   3. El sector empresarial.
+La informació rellevant relativa als **contractes** és:
+
+1. El codi del contracte.
+2. La data d'inici del contracte.
+3. La data de l'acabament del contracte. 4. L'empresa que ha atorgat el contracte.
+   A partir de les dades anteriors, volem efectuar les operacions següents:
+1. Determinar la suma total de les durades dels contractes en dies. 2. Determinar en
+   quantes empreses diferents ha treballat.
+3. Signar un contracte per una empresa.
+4. Determinar la durada d'un contracte en dies.

@@ -74,7 +74,7 @@ public class ManagementTelephony {
                 calls.add(call);
                 System.out.println("Successful!...");
                 return;
-            } 
+            }
         }
         invoices.add(new Invoice(client,call));
         calls.add(call);
@@ -101,7 +101,6 @@ public class ManagementTelephony {
             getInvoiceOfClient(client);
         }
     }
-
 
     private double changeSecondsForMinutes(double totalSeconds){
         return totalSeconds/60;
