@@ -12,7 +12,6 @@ public class FerriesAndTrucksManagement {
     }
 
     public static void main(String[] args) {
-
         ArrayList<Truck> trucks = new ArrayList<>();
 
         Truck truck = new Truck("XXXX",23);

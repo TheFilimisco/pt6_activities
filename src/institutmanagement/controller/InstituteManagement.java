@@ -1,4 +1,8 @@
-package institutmanagement.models;
+package institutmanagement.controller;
+
+import institutmanagement.models.Course;
+import institutmanagement.models.Enrollment;
+import institutmanagement.models.Student;
 
 import java.util.ArrayList;
 

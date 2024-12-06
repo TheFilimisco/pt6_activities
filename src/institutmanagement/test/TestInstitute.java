@@ -2,11 +2,10 @@ package institutmanagement.test;
 
 import institutmanagement.models.Course;
 import institutmanagement.models.Enrollment;
-import institutmanagement.models.InstituteManagement;
+import institutmanagement.controller.InstituteManagement;
 import institutmanagement.models.Student;
 
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class TestInstitute {
     public static void main(String[] args) {
