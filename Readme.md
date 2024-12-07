@@ -74,7 +74,7 @@ La informació rellevant relativa als ferries és:
    total).
      ![ModelRelationTelephony](src/telephony/modelRelation.png).  
 
-### 5. Contractes 
+### 5. Contractes (managementcompany)
 
 Volem gestionar certa informació associada als contractes de persones que
 treballen en empreses. 
@@ -96,3 +96,5 @@ treballen en empreses.
   2. Determinar en quantes empreses diferents ha treballat.
   3. Signar un contracte per una empresa.
   4. Determinar la durada d'un contracte en dies.
+
+    ![ModelRelationTelephony](src/managementcompany/managementcompany.png).  

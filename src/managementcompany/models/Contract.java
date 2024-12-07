@@ -8,9 +8,10 @@ public class Contract {
     private LocalDate startDate;
     private LocalDate endDate;
     private Company company;
+    private static int countContract=0;
 
-    public Contract(long codeContract, LocalDate startDate, LocalDate endDate, Company company) {
-        this.codeContract = codeContract;
+    public Contract( LocalDate startDate, LocalDate endDate, Company company) {
+        this.codeContract = countContract++;
         this.startDate = startDate;
         this.endDate = endDate;
         this.company = company;

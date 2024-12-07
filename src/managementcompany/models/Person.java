@@ -43,16 +43,16 @@ public class Person {
 
     public void getTotalTimeInDaysOfContracts(){
         var year = 0;
-        var mounth = 0;
+        var month = 0;
         var day = 0;
         for (Contract contract: contracts) {
-            year += contract.getEndDate().getYear()-contract.getStartDate().getYear();
-            mounth += contract.getEndDate().getMonthValue()-contract.getStartDate().getMonthValue();
-            day += contract.getEndDate().getDayOfMonth()-contract.getStartDate().getDayOfMonth();
+            year += (contract.getEndDate().getYear()-contract.getStartDate().getYear());
+            month += (contract.getEndDate().getMonthValue()-contract.getStartDate().getMonthValue());
+            day += (contract.getEndDate().getDayOfMonth()-contract.getStartDate().getDayOfMonth());
 //            contract.getStartDate()-contract.getEndDate();
         }
-        System.out.println("Year: " + year + " Month: " + mounth + " day: " + day);
-        System.out.println("Total days: " + ((year/12)*30) + mounth*30 + day);
+        System.out.println("Year: " + year + " Month: " + month + " day: " + day);
+        System.out.println("Total days: " + ((year*365) + (month*30) + day));
     }
 
     public void thisPersonHasWorked(){
@@ -61,18 +61,18 @@ public class Person {
         }
     }
 
-    public void addNewContract(Company company) {
-        contracts.add(new Contract(4,LocalDate.now(), LocalDate.of(2028,6,2),company));
+    public void addNewContract(Company company, int inputYear, int inputMonth, int inputDayOfMonth) {
+        contracts.add(new Contract(LocalDate.now(), LocalDate.of(inputYear,inputMonth,inputDayOfMonth),company));
     }
 
     public void searchThisContract(Contract contract) {
         for (Contract con: contracts) {
             if (con.getCodeContract()==contract.getCodeContract()){
                 var year = con.getEndDate().getYear()-contract.getStartDate().getYear();
-                var mounth = con.getEndDate().getMonthValue()-contract.getStartDate().getMonthValue();
+                var month = con.getEndDate().getMonthValue()-contract.getStartDate().getMonthValue();
                 var day = con.getEndDate().getDayOfMonth()-contract.getStartDate().getDayOfMonth();
                 System.out.println(contract);
-                System.out.println("Total days: " + ((year/12)*30) + mounth*30 + day);
+                System.out.println("Total days: " + ((year*365) + (month*30) + day));
             }
         }
     }
@@ -88,36 +88,33 @@ public class Person {
     }
 
 
-    public static void main(String[] args) {
-        Company company = new Company("X00000000", "Company1", "Big");
-        Company company1 = new Company("X00000001", "Company2", "Small");
-        Company company2 = new Company("X00000001", "Company2", "Medium");
-
-        LocalDate today = LocalDate.now();
-        LocalDate specificDate = LocalDate.of(2014, Month.JANUARY, 1);
-        LocalDate specificDate2 = LocalDate.of(2014, Month.FEBRUARY, 1);
-
-        Contract contract = new Contract(1, specificDate, today, company );
-        Contract contract1 = new Contract(2,specificDate2, today , company1);
-//        System.out.println(contract);
-
-        Person person = new Person("99999999X", "Subject1", contract);
-        person.getContracts().add(contract1);
-
-        System.out.println(person);
-        person.getTotalTimeInDaysOfContracts();
-        person.thisPersonHasWorked();
-        person.addNewContract(company2);
-        person.thisPersonHasWorked();
-
-        for (Contract con: person.contracts){
-            System.out.println(con);
-        }
-
-        person.searchThisContract(contract);
-
-
-
-    }
+//    public static void main(String[] args) {
+//        Company company = new Company("X00000000", "Company1", "Big");
+//        Company company1 = new Company("X00000001", "Company2", "Small");
+//        Company company2 = new Company("X00000001", "Company2", "Medium");
+//
+//        LocalDate today = LocalDate.now();
+//        LocalDate specificDate = LocalDate.of(2014, Month.JANUARY, 1);
+//        LocalDate specificDate2 = LocalDate.of(2014, Month.FEBRUARY, 1);
+//
+//        Contract contract = new Contract(1, specificDate, today, company );
+//        Contract contract1 = new Contract(2,specificDate2, today , company1);
+////        System.out.println(contract);
+//
+//        Person person = new Person("99999999X", "Subject1", contract);
+//        person.getContracts().add(contract1);
+//
+//        System.out.println(person);
+//        person.getTotalTimeInDaysOfContracts();
+//        person.thisPersonHasWorked();
+//        person.addNewContract(company2);
+//        person.thisPersonHasWorked();
+//
+//        for (Contract con: person.contracts){
+//            System.out.println(con);
+//        }
+//
+//        person.searchThisContract(contract);
+//    }
 }
 
