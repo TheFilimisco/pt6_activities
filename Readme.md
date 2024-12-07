@@ -98,3 +98,29 @@ treballen en empreses.
   4. Determinar la durada d'un contracte en dies.
 
     ![ModelRelationTelephony](src/managementcompany/managementcompany.png).  
+
+
+### 6. Consultoris mèdics (medicalappointmentmanagement)
+
+Volem gestionar certa informació associada a la programació de visites en
+consultoris mèdics.
+- **La informació rellevant relativa a les visites és:**
+  1. La data i hora de la visita.
+  2. El nom del pacient.
+- **La informació rellevant relativa als consultoris és:**
+  1. El nom del doctor
+  2. L'especialitat mèdica.
+  3. Les visites programades del consultori.
+- **A partir de les dades anteriors, volem efectuar les operacions següents:**
+  1. Verificar si una determinada visita pot ser programada o no.
+  2. Programar una visita.
+  3. Comptar les visites programades.
+  4. Comptar les visites programades entre dues dates.
+  5. Desprogramar una visita.
+  6. Desprogramar totes les visites.
+
+
+_Nota: No es podrà programar un visita si n'hi ha una altra a la mateixa data i hora o
+si es solapen en un interval de 30 minuts._
+
+
