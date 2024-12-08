@@ -124,3 +124,11 @@ _Nota: No es podrà programar un visita si n'hi ha una altra a la mateixa data i
 si es solapen en un interval de 30 minuts._
 
 
+
+Notes: 
+
+When used entity than it need make Arraylist is necessary create Other Class I mean if I created a Class that I management can put 
+all my method or for example in Truck ferry have at list, pero doesn't have one method for add truck, for example, could I will create a method 
+and I'll use that method en management, and just call him. But Have Can do it withouth to create Management. 
+
+
