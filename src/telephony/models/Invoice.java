@@ -9,6 +9,8 @@ public class Invoice {
     private ArrayList<Call> calls;
     private static int countInvoice = 0;
 
+    //Por ejemplo aqui las llamadas deberia crear un metodo para agregar llamadas, editar elimianry asi
+
     public Invoice(Client client, Call call) {
         this.idInvoice = countInvoice++;
         this.client = client;
