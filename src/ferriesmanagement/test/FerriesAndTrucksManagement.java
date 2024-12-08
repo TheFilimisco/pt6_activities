@@ -4,6 +4,7 @@ import ferriesmanagement.models.Ferry;
 import ferriesmanagement.models.Truck;
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class FerriesAndTrucksManagement {
 
@@ -21,69 +22,160 @@ public class FerriesAndTrucksManagement {
         trucks.add(truck1);
         trucks.add(truck2);
 
+
         Ferry ferry = new Ferry("XXX","LA PINTA", "Barcelona",20.0, 100, trucks );
         System.out.println(ferry);
+        ArrayList<Ferry> ferries = new ArrayList<>();
+        ferries.add(ferry);
 
         FerriesAndTrucksManagement management = new FerriesAndTrucksManagement();
 
+
+
         //Works!
 //        var petition1 = management.totalWeightOfTrucksEmbark(ferry);
+//        String petition1 = management.formatTextWeight(management.totalWeightOfTrucksEmbark(ferry));
+//        System.out.println(petition1);
+//
+//        //Works!
+//        String petition2 = management.itsTruckEmbark("XXXX", ferry);
+//        System.out.println(petition2);
+//
+//        //Works!
+//        String petition3 = management.itsTruckEmbark("XXXX234", ferry);
+//        System.out.println(petition3);
+//
+//
+//        // High of Weight!
+//        Truck truck3 = new Truck("XXX5",60);
+//        String petition4 = management.itsPossibleTruckEmbark(truck3,ferry);
+//        System.out.println(petition4);
+//
+//        //Low of Weight!
+//        Truck truck4 = new Truck("XXX6",20);
+//        String petition5 = management.itsPossibleTruckEmbark(truck4,ferry);
+//        System.out.println(petition5);
+//
+//        //Show Trucks List of ferry before the method
+//        System.out.println(ferry.getTrucks());
+//
+//        //Show Truc List After of method
+//        management.embarkThisTruck(truck4,ferry);
+//        System.out.println(ferry.getTrucks());
+//
+//
+//        //Position correct
+//        String petition6 = management.getTruckEmbarkPosition(0,ferry);
+//        System.out.println(petition6);
+//
+//        //Position Incorrect
+//        String petition7 = management.getTruckEmbarkPosition(6,ferry);
+//        System.out.println(petition7);
+//
+//
+//        // Works!
+//        String petition8 = management.getPriceForTruckEmbarked(truck4,ferry);
+//        System.out.println(petition8);
+//
+//
+//        // Works!
+//        String petition9 = management.formatTextPrice(management.getPriceTotalTrucksEmbarked(ferry));
+//        System.out.println(petition9);
 
-        String petition1 = management.formatTextWeight(management.totalWeightOfTrucksEmbark(ferry));
-        System.out.println(petition1);
+        Scanner input = new Scanner(System.in);
 
-        //Works!
-        String petition2 = management.itsTruckEmbark("XXXX", ferry);
-        System.out.println(petition2);
+        var runing = true;
 
-        //Works!
-        String petition3 = management.itsTruckEmbark("XXXX234", ferry);
-        System.out.println(petition3);
+        while (runing) {
+            System.out.println("""
+                    =====================Menu Ferries and Trucks===============
+                    1. Get the weight total of Trucks on Embarked to Ferry
+                    2. Search if your Truck is Embarked at the Ferry
+                    3. Could embarked a Truck at the Ferry
+                    7. Close
+                    """);
+            var inputNumber = input.nextInt();
+            switch (inputNumber){
+                case 1:
+                    input.nextLine();
+                    System.out.println("=======Total Weight of Trucks Embarked=====");
+                    System.out.print("Put your license Plate of Ferry: ");
+                    try {
+                        var inputLicensePlateFerry = input.nextLine();
+                        System.out.println((management.formatTextPrice(management.totalWeightOfTrucksEmbark(searchFerryForLicensePlate(inputLicensePlateFerry,ferries)))));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 2:
+                    input.nextLine();
+                    System.out.println("=======Search Truck at the Ferry=====");
+                    System.out.print("Put your license Plate of Ferry: ");
+                    var inputLicensePlateFerry = input.nextLine();
+                    System.out.print("Put your license Plate of Truck: ");
+                    var inputLicensePlateTruck = input.nextLine();
+                    try {
+                        System.out.println(management.itsTruckEmbark(inputLicensePlateTruck,searchFerryForLicensePlate(inputLicensePlateFerry,ferries)));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
 
+                    break;
+                case 3:
+                    input.nextLine();
+                    System.out.println("=======Is it possible embarked this Truck?=====");
+                    System.out.print("Put your license Plate of Ferry: ");
+                    var inputLicensePlateFerryPossible = input.nextLine();
+                    System.out.print("Put your license Plate of Truck: ");
+                    var inputLicensePlateTruckPossible = input.nextLine();
+                    try {
+                        System.out.println(management.itsPossibleTruckEmbark(searchTruckForLicensePlate(inputLicensePlateTruckPossible,trucks),searchFerryForLicensePlate(inputLicensePlateFerryPossible,ferries)));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 4:
+                    break;
+                case 5:
+                    break;
+                case 6:
+                    break;
+                case 7:
+                    System.out.println("Leaving...");
+                    runing = false;
+                    break;
+                default:
+                    System.out.println("Do write right value!...");
+            }
+        }
 
-        // High of Weight!
-        Truck truck3 = new Truck("XXX5",60);
-        String petition4 = management.itsPossibleTruckEmbark(truck3,ferry);
-        System.out.println(petition4);
-
-        //Low of Weight!
-        Truck truck4 = new Truck("XXX6",20);
-        String petition5 = management.itsPossibleTruckEmbark(truck4,ferry);
-        System.out.println(petition5);
-
-        //Show Trucks List of ferry before the method
-        System.out.println(ferry.getTrucks());
-
-        //Show Truc List After of method
-        management.embarkThisTruck(truck4,ferry);
-        System.out.println(ferry.getTrucks());
-
-
-        //Position correct
-        String petition6 = management.getTruckEmbarkPosition(0,ferry);
-        System.out.println(petition6);
-
-        //Position Incorrect
-        String petition7 = management.getTruckEmbarkPosition(6,ferry);
-        System.out.println(petition7);
-
-
-        // Works!
-        String petition8 = management.getPriceForTruckEmbarked(truck4,ferry);
-        System.out.println(petition8);
-
-
-        // Works!
-        String petition9 = management.formatTextPrice(management.getPriceTotalTrucksEmbarked(ferry));
-        System.out.println(petition9);
 
     }
+
+    private static Ferry searchFerryForLicensePlate(String inputLicensePlateFerry, ArrayList<Ferry> ferries){
+        for (Ferry ferry: ferries) {
+            if (ferry.getLicensePlate().equals(inputLicensePlateFerry)){
+                return ferry;
+
+            }
+        } throw new IllegalArgumentException("The License plate: " + inputLicensePlateFerry + "doesn't exist!");
+    }
+
+    private static Truck searchTruckForLicensePlate(String inputLicensePlateTruck, ArrayList<Truck> trucks){
+        for (Truck truck: trucks) {
+            if (truck.getLicensePlate().equals(inputLicensePlateTruck)){
+                return truck;
+            }
+        } throw new IllegalArgumentException("The License plate: " + inputLicensePlateTruck + "doesn't exist!");
+    }
+
+
 
     private String formatTextWeight(double weight) {
         return weight + " " + ".t";
     }
 
-    private String formatTextPrice(double price) {
+    private  String formatTextPrice(double price) {
         return price + " " + ".€";
     }
 
