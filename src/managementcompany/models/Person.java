@@ -42,9 +42,9 @@ public class Person {
     }
 
     public void getTotalTimeInDaysOfContracts(){
-        var year = 0;
-        var month = 0;
-        var day = 0;
+        int year = 0;
+        int month = 0;
+        int day = 0;
         for (Contract contract: contracts) {
             year += (contract.getEndDate().getYear()-contract.getStartDate().getYear());
             month += (contract.getEndDate().getMonthValue()-contract.getStartDate().getMonthValue());
@@ -68,9 +68,9 @@ public class Person {
     public void searchThisContract(Contract contract) {
         for (Contract con: contracts) {
             if (con.getCodeContract()==contract.getCodeContract()){
-                var year = con.getEndDate().getYear()-contract.getStartDate().getYear();
-                var month = con.getEndDate().getMonthValue()-contract.getStartDate().getMonthValue();
-                var day = con.getEndDate().getDayOfMonth()-contract.getStartDate().getDayOfMonth();
+                int year = con.getEndDate().getYear()-contract.getStartDate().getYear();
+                int month = con.getEndDate().getMonthValue()-contract.getStartDate().getMonthValue();
+                int day = con.getEndDate().getDayOfMonth()-contract.getStartDate().getDayOfMonth();
                 System.out.println(contract);
                 System.out.println("Total days: " + ((year*365) + (month*30) + day));
             }

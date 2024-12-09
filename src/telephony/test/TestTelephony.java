@@ -16,7 +16,7 @@ public class TestTelephony {
         Scanner input = new Scanner(System.in);
         ManagementTelephony managementTelephony = new ManagementTelephony(clients,calls,invoices);
 
-        var runing = true;
+        boolean runing = true;
 
 
         // This I'd like correct this code
