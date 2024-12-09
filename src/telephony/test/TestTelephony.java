@@ -16,7 +16,7 @@ public class TestTelephony {
         Scanner input = new Scanner(System.in);
         ManagementTelephony managementTelephony = new ManagementTelephony(clients,calls,invoices);
 
-        var runing = true;
+        boolean runing = true;
 
         while (runing) {
             System.out.println("""
