@@ -7,6 +7,7 @@ import managementcompany.models.Person;
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
+import java.util.Locale;
 import java.util.Scanner;
 
 public class TestCompany {
@@ -23,7 +24,7 @@ public class TestCompany {
         companies.add(company1);
         companies.add(company2);
 
-//        ArrayList<Contract> contracts = new ArrayList<>();
+        ArrayList<Contract> contracts = new ArrayList<>();
 
         Contract contract = new Contract(LocalDate.of(2012, Month.JANUARY,2),LocalDate.of(2013,Month.MARCH,2),company);
         Contract contract1 = new Contract(LocalDate.of(2013, Month.FEBRUARY,3),LocalDate.of(2014,Month.FEBRUARY,3),company);
@@ -31,11 +32,11 @@ public class TestCompany {
         Contract contract3 = new Contract(LocalDate.of(2012, Month.JANUARY,2),LocalDate.of(2013,Month.JANUARY,2),company);
         Contract contract4 = new Contract(LocalDate.of(2012, Month.JANUARY,2),LocalDate.of(2013,Month.JANUARY,2),company);
 
-//        contracts.add(contract);
-//        contracts.add(contract1);
-//        contracts.add(contract2);
-//        contracts.add(contract3);
-//        contracts.add(contract4);
+        contracts.add(contract);
+        contracts.add(contract1);
+        contracts.add(contract2);
+        contracts.add(contract3);
+        contracts.add(contract4);
 
 
 
@@ -57,10 +58,13 @@ public class TestCompany {
 
         while (runing) {
             System.out.println("""
+                ====================Menu Company==============
                 1. Duration total by Person through days
                 2. Companies has been Worked
                 3. New Contract for a Company
                 4. Duration of a specific contract
+                5. Leave
+                ==============================================
                 """);
             System.out.print("Enter your number: ");
             var inputNumber = input.nextInt();
@@ -115,7 +119,7 @@ public class TestCompany {
                         var inputDni = input.nextLine();
                         System.out.print("Enter Code Contract than you find:");
                         var inputCodeContract = input.nextLong();
-                        searchContractForCodeContract(inputCodeContract,searchPersonForDni(inputDni,people).getContracts());
+                        searchPersonForDni(inputDni,people).searchThisContract(searchContractForCodeContract(inputCodeContract,contracts));
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -150,11 +154,10 @@ public class TestCompany {
 
     }
 
-    public static void searchContractForCodeContract(long inputCodeContract, ArrayList<Contract> contracts){
+    public static Contract searchContractForCodeContract(long inputCodeContract, ArrayList<Contract> contracts){
         for (Contract contract: contracts){
             if ((contract.getCodeContract() == inputCodeContract)){
-                System.out.println(contract);
-                return;
+                return contract;
             }
         }
         throw  new IllegalArgumentException("The contract with Code: " + inputCodeContract + " doesn't exist!");

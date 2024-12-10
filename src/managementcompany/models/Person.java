@@ -3,6 +3,7 @@ package managementcompany.models;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.Month;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class Person {
@@ -42,17 +43,11 @@ public class Person {
     }
 
     public void getTotalTimeInDaysOfContracts(){
-        int year = 0;
-        int month = 0;
-        int day = 0;
+        long day = 0;
         for (Contract contract: contracts) {
-            year += (contract.getEndDate().getYear()-contract.getStartDate().getYear());
-            month += (contract.getEndDate().getMonthValue()-contract.getStartDate().getMonthValue());
-            day += (contract.getEndDate().getDayOfMonth()-contract.getStartDate().getDayOfMonth());
-//            contract.getStartDate()-contract.getEndDate();
+            day += ChronoUnit.DAYS.between(contract.getStartDate(),contract.getEndDate());
         }
-        System.out.println("Year: " + year + " Month: " + month + " day: " + day);
-        System.out.println("Total days: " + ((year*365) + (month*30) + day));
+        System.out.println("Total days: " + (day));
     }
 
     public void thisPersonHasWorked(){
@@ -68,11 +63,8 @@ public class Person {
     public void searchThisContract(Contract contract) {
         for (Contract con: contracts) {
             if (con.getCodeContract()==contract.getCodeContract()){
-                int year = con.getEndDate().getYear()-contract.getStartDate().getYear();
-                int month = con.getEndDate().getMonthValue()-contract.getStartDate().getMonthValue();
-                int day = con.getEndDate().getDayOfMonth()-contract.getStartDate().getDayOfMonth();
-                System.out.println(contract);
-                System.out.println("Total days: " + ((year*365) + (month*30) + day));
+                System.out.println("Code contract: " + con.getCodeContract() + " company: " + con.getCompany().getName());
+                System.out.println("Total days: " + (ChronoUnit.DAYS.between(contract.getStartDate(),contract.getEndDate())));
             }
         }
     }

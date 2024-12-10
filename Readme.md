@@ -97,7 +97,7 @@ treballen en empreses.
   3. Signar un contracte per una empresa.
   4. Determinar la durada d'un contracte en dies.
 
-    ![ModelRelationTelephony](src/managementcompany/managementcompany.png).  
+    ![ModelRelationCompany](src/managementcompany/managementcompany.png).  
 
 
 ### 6. Consultoris mèdics (medicalappointmentmanagement)

@@ -5,15 +5,24 @@ import java.time.LocalDateTime;
 public class Visit {
     private int numberVisit;
     private LocalDateTime dateVisitMedical;
-    private String name;
-    private  int counterNumberVisit = 0;
+    private String patientName;
+    private static int counterNumberVisit = 0;
 
-    public Visit(int year, int month, int day, int hour, int minutes , String name) {
+    public Visit(int year, int month, int day, int hour, int minutes , String patientName) {
 //        this.dateVisitMedical = LocalDateTime.;
         this.numberVisit = counterNumberVisit++;
         this.dateVisitMedical = LocalDateTime.of(year,month,day,hour,minutes);
-        this.name = name;
+        this.patientName = patientName;
     }
+
+    public Visit(LocalDateTime dateVisitMedical, String patientName) {
+//        this.dateVisitMedical = LocalDateTime.;
+        this.numberVisit = counterNumberVisit++;
+        this.dateVisitMedical = dateVisitMedical;
+        this.patientName = patientName;
+    }
+
+
 
     public int getNumberVisit() {
         return numberVisit;
@@ -23,13 +32,11 @@ public class Visit {
         this.numberVisit = numberVisit;
     }
 
-    public int getCounterNumberVisit() {
-        return counterNumberVisit;
+    public static void getCounterNumberVisit() {
+        System.out.println(counterNumberVisit);
     }
 
-    public void setCounterNumberVisit(int counterNumberVisit) {
-        this.counterNumberVisit = counterNumberVisit;
-    }
+
 
     public LocalDateTime getDateVisitMedical() {
         return dateVisitMedical;
@@ -39,12 +46,12 @@ public class Visit {
         this.dateVisitMedical = dateVisitMedical;
     }
 
-    public String getName() {
-        return name;
+    public String getpatientName() {
+        return patientName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setpatientName(String name) {
+        this.patientName = name;
     }
 
     @Override
@@ -52,8 +59,7 @@ public class Visit {
         return "Visit{" +
                 "numberVisit=" + numberVisit +
                 ", dateVisitMedical=" + dateVisitMedical +
-                ", name='" + name + '\'' +
-                ", counterNumberVisit=" + counterNumberVisit +
+                ", patientName='" + patientName + '\'' +
                 '}';
     }
 }

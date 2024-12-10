@@ -1,6 +1,8 @@
 package medicalappointmentmanagement.models;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 
 public class DoctorOffice {
@@ -49,18 +51,47 @@ public class DoctorOffice {
         this.visits = visits;
     }
 
-    public void verifiedDateMedicalToAdd(){
 
+    public boolean isPossibleAddThisVisit(Visit inputvisit){
+        for (Visit visit: visits) {
+            if (ChronoUnit.MINUTES.between(visit.getDateVisitMedical(),inputvisit.getDateVisitMedical()) < 30){
+                return false;
+            }
+        }
+        return true;
     }
 
-    public void addVisit(int year, int month, int day, int hour, int minutes , String name) {
-        visits.add(new Visit(year,month, day, hour, minutes , name));
+    public int getNumberVisitsProgrammed(){
+        var counterVisit = 0;
+        for (int i = 0; i < visits.size(); i++) {
+            counterVisit++;
+        }
+        return counterVisit;
     }
 
-    public void countVisitsProgrammed(){
-        System.out.println("you have: "  + " visit programmed!...");
+    public void getVisitsProgrammedBetweenBothDate(LocalDateTime firstDate, LocalDateTime secondDate){
+        for (Visit visit: visits) {
+            if (visit.getDateVisitMedical().isAfter(firstDate) && visit.getDateVisitMedical().isBefore(secondDate)){
+                System.out.println(visit);
+            }
+        }
     }
 
+    public void deleteVisitedForNumberVisit(int numberVisit) {
+        for (Visit visit:visits) {
+            if (visit.getNumberVisit() == numberVisit) {
+                System.out.println("Remove : " + visit + "...");
+                visits.remove(visit);
+                break;
+            }
+        }
+    }
+
+
+
+    public void getNumberVisits() {
+        Visit.getCounterNumberVisit();
+    }
 
 
 
@@ -74,10 +105,4 @@ public class DoctorOffice {
     }
 
 
-    public static void main(String[] args) {
-        ArrayList<Visit> visits = new ArrayList<>();
-        DoctorOffice doctorOffice = new DoctorOffice("Joaquin", "Gastroenterologist", visits);
-        doctorOffice.countVisitsProgrammed();
-
-    }
 }
