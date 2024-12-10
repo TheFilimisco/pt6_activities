@@ -92,8 +92,9 @@ public class ManagementTelephony {
                 }
             }
         }
-        System.out.println("Minutes Total:" + changeSecondsForMinutes(totalSeconds));
-        System.out.println("Price Total of Invoice: " + changeSecondsForMinutes(totalSeconds)*client.getpriceCallForMinutes());
+        System.out.println("====================================");
+        System.out.println("Minutes Total of " + client.getDni() + " : "+ changeSecondsForMinutes(totalSeconds));
+        System.out.println("Total price Invoice of " + client.getDni() +" : " + changeSecondsForMinutes(totalSeconds)*client.getpriceCallForMinutes());
     }
 
     public void showListClientsResume(){

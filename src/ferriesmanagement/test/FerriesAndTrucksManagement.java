@@ -22,12 +22,9 @@ public class FerriesAndTrucksManagement {
         trucks.add(truck1);
         trucks.add(truck2);
 
-
         Ferry ferry = new Ferry("XXX","LA PINTA", "Barcelona",20.0, 100, trucks );
-        System.out.println(ferry);
         ArrayList<Ferry> ferries = new ArrayList<>();
         ferries.add(ferry);
-
         FerriesAndTrucksManagement management = new FerriesAndTrucksManagement();
 
 
@@ -92,8 +89,13 @@ public class FerriesAndTrucksManagement {
                     1. Get the weight total of Trucks on Embarked to Ferry
                     2. Search if your Truck is Embarked at the Ferry
                     3. Could embarked a Truck at the Ferry
-                    7. Close
+                    4. Embarked this Truck
+                    5. Search Truck For Position
+                    6. Get Pay Toll of a Truck
+                    7. Get recollected total pay toll of a Ferry
+                    ===========================================================
                     """);
+            System.out.print("Enter your number: ");
             var inputNumber = input.nextInt();
             switch (inputNumber){
                 case 1:
@@ -102,7 +104,7 @@ public class FerriesAndTrucksManagement {
                     System.out.print("Put your license Plate of Ferry: ");
                     try {
                         var inputLicensePlateFerry = input.nextLine();
-                        System.out.println((management.formatTextPrice(management.totalWeightOfTrucksEmbark(searchFerryForLicensePlate(inputLicensePlateFerry,ferries)))));
+                        System.out.println((management.formatTextWeight(management.totalWeightOfTrucksEmbark(searchFerryForLicensePlate(inputLicensePlateFerry,ferries)))));
                     } catch (Exception e) {
                         System.out.println(e.getMessage());
                     }
@@ -134,13 +136,61 @@ public class FerriesAndTrucksManagement {
                         System.out.println(e.getMessage());
                     }
                     break;
+
                 case 4:
+                    input.nextLine();
+                    System.out.println("=======Embarked this Truck=====");
+                    System.out.print("Put your license Plate of Ferry selected to embarked your Truck: ");
+                    var licensePlateOfFerry = input.nextLine();
+                    System.out.print("Put new license Plate of Truck: ");
+                    var newLicensePlateTruck = input.nextLine();
+                    System.out.print("Put new Weight for Truck: ");
+                    var newWeightForThisTruck = input.nextInt();
+                    try {
+                        management.embarkThisTruck(new Truck(newLicensePlateTruck,newWeightForThisTruck),searchFerryForLicensePlate(licensePlateOfFerry,ferries));
+                    }catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 5:
+                    input.nextLine();
+                    System.out.println("==========Search Truck For Position========");
+                    System.out.print("Put your position number: ");
+                    var positionNumberOfTruck = input.nextInt();
+                    System.out.print("Put your license Plate of Ferry where this truck: ");
+                    var ferryWhereFoundTrack = input.nextLine();
+                    try {
+                        System.out.println( management.getTruckEmbarkPosition(positionNumberOfTruck,searchFerryForLicensePlate(ferryWhereFoundTrack,ferries)));
+                    }catch (Exception e){
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case 6:
+                    input.nextLine();
+                    System.out.println("==========Get Pay Toll of a Truck========");
+                    System.out.print("Put your license Plate of Ferry: ");
+                    var inputLicensePlateOfFerry = input.nextLine();
+                    System.out.print("Put your license Plate of Truck: ");
+                    var inputLicensePlateOfTruck = input.nextLine();
+                    try {
+                        System.out.println(management.getPriceForTruckEmbarked(searchTruckForLicensePlate(inputLicensePlateOfTruck,trucks), searchFerryForLicensePlate(inputLicensePlateOfFerry,ferries)));
+                    } catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+
                     break;
                 case 7:
+                    input.nextLine();
+                    System.out.println("==========Get Total Pay Toll of a Ferry========");
+                    System.out.print("Put your license Plate of Ferry: ");
+                    var ferryLicensePlateForTotalPayToll = input.nextLine();
+                    try {
+                        System.out.println(management.getPriceTotalTrucksEmbarked(searchFerryForLicensePlate(ferryLicensePlateForTotalPayToll,ferries)));
+                    }catch (Exception e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case 8:
                     System.out.println("Leaving...");
                     runing = false;
                     break;
@@ -158,7 +208,7 @@ public class FerriesAndTrucksManagement {
                 return ferry;
 
             }
-        } throw new IllegalArgumentException("The License plate: " + inputLicensePlateFerry + "doesn't exist!");
+        } throw new IllegalArgumentException("The License plate of Ferry: " + inputLicensePlateFerry + " doesn't exist!");
     }
 
     private static Truck searchTruckForLicensePlate(String inputLicensePlateTruck, ArrayList<Truck> trucks){
@@ -166,7 +216,7 @@ public class FerriesAndTrucksManagement {
             if (truck.getLicensePlate().equals(inputLicensePlateTruck)){
                 return truck;
             }
-        } throw new IllegalArgumentException("The License plate: " + inputLicensePlateTruck + "doesn't exist!");
+        } throw new IllegalArgumentException("The License plate of Truck: " + inputLicensePlateTruck + " doesn't exist!");
     }
 
 
@@ -207,12 +257,15 @@ public class FerriesAndTrucksManagement {
             return "Dont possible for: " + (totalWeight+truck.getWeight() - ferry.getMaxWeightToTransport()) + "t";
         }
         return "Its possible!";
-
     }
 
     public void embarkThisTruck(Truck truck, Ferry ferry){
-         ferry.getTrucks().add(truck);
-        System.out.println("Process Sucessfull!");
+        if (itsPossibleTruckEmbark(truck, ferry).equals("Its possible!")) {
+            ferry.getTrucks().add(truck);
+            System.out.println("Process Sucessfull!");
+        } else {
+            System.out.println(itsPossibleTruckEmbark(truck,ferry));
+        }
     }
 
 
@@ -226,11 +279,6 @@ public class FerriesAndTrucksManagement {
     }
 
     public String getPriceForTruckEmbarked(Truck truck, Ferry ferry){
-//        double priceTruck = 0;
-//        for (Truck tru: ferry.getTrucks()) {
-//            priceTruck=tru.getWeight()*ferry.getFerryPriceByWeight();
-//        }
-//        return  priceTruck + ".€";
         return truck.getWeight()*ferry.getFerryPriceByWeight() + ".€";
     }
 
