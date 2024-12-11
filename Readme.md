@@ -123,12 +123,29 @@ consultoris mèdics.
 _Nota: No es podrà programar un visita si n'hi ha una altra a la mateixa data i hora o
 si es solapen en un interval de 30 minuts._
 
+### 7. Simulador de gestió de reserves en un hotel
+
+Desenvolupa un sistema per gestionar les reserves d'habitacions en un hotel. Cada
+habitació té un tipus (simple, doble, suite) i pot tenir diversos serveis associats (wifi,
+minibar, aire condicionat). Utilitza composició per modelar aquestes relacions.
+- **Requisits:**
+  - Unhotel té una llista d'habitacions.
+  - Cadahabitació té un tipus i una llista de serveis.
+  - Elsserveis disponibles poden ser wifi, minibar, aire condicionat, etc.
+  - Unareserva conté la data d'entrada, data de sortida i l'habitació assignada.
+- **Classes:**
+  - Hotel: té una llista d'habitacions.
+  - Habitacio: té atributs per tipus d'habitació (simple, doble, suite) i llista de
+  serveis.
+  - Servei: té atributs per al tipus de servei (wifi, minibar, aire condicionat).
+  - Reserva: té una data d'entrada, data de sortida i l'habitació reservada.
+- **Funcionalitats:**
+  - Realitzar reserves per als clients.
+  - Obtenir les habitacions disponibles per a dates específiques.
+  - Mostrar tots els serveis disponibles per a una habitació.
+  - Saber si en una data concreta una habitació concreta està reservada o no.
 
 
-Notes: 
 
-When used entity than it need make Arraylist is necessary create Other Class I mean if I created a Class that I management can put 
-all my method or for example in Truck ferry have at list, pero doesn't have one method for add truck, for example, could I will create a method 
-and I'll use that method en management, and just call him. But Have Can do it withouth to create Management. 
 
 
