@@ -87,13 +87,19 @@ public class DoctorOffice {
         }
     }
 
+    public void clearTotalVisits() {
+        visits.clear();
+    }
 
+    public void showAllVisits() {
+        for (Visit visit: visits){
+            System.out.println(visit);
+        }
+    }
 
     public void getNumberVisits() {
         Visit.getCounterNumberVisit();
     }
-
-
 
     @Override
     public String toString() {

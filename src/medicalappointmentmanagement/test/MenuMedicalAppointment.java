@@ -34,6 +34,10 @@ public class MenuMedicalAppointment {
                     2. Get number of visits programmed
                     3. Get Visited of between of Dates
                     4. Delete Visit with Number Visit
+                    5. Clean Total Visits
+                    6. Show All Visits
+                    7. Close
+                    =================================================
                 """);
             System.out.print("Enter your option number: ");
             int inputNumber = input.nextInt();
@@ -84,14 +88,19 @@ public class MenuMedicalAppointment {
                     int inputNumberVisit = input.nextInt();
                     doctorOffice.deleteVisitedForNumberVisit(inputNumberVisit);
                     break;
-                case 6:
+                case 5:
+                    input.nextLine();
+                    System.out.println("======Clean All Visits======");
+                    doctorOffice.showAllVisits();
+                    doctorOffice.clearTotalVisits();
 
-                    running = false;
+                case 6:
+                    System.out.println("==========All visits===========");
+                    doctorOffice.showAllVisits();
                     break;
                 case 7:
-                    for (Visit visit: doctorOffice.getVisits()){
-                        System.out.println(visit);
-                    }
+                    System.out.println("Leave...");
+                    running = false;
                     break;
                 default:
                     System.out.println("Do to write correct option!");
