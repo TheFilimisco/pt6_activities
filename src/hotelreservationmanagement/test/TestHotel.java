@@ -1,14 +1,9 @@
 package hotelreservationmanagement.test;
 
 import hotelreservationmanagement.models.Hotel;
-import hotelreservationmanagement.models.Reservation;
-import hotelreservationmanagement.models.Room;
-import hotelreservationmanagement.models.Service;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class TestHotel {
