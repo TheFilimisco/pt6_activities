@@ -50,8 +50,7 @@ public class Hotel {
 
     public void searchThisRoom(String typeOfRoomYouWant, String nameClient, LocalDate checkInDate, LocalDate checkOutDate){
         for (Room room: rooms){
-            if (typeOfRoomYouWant.equals(room.getTypeOfRoom()) && (!room.isThisReserved())) {
-                room.setThisReserved(true);
+            if (typeOfRoomYouWant.equals(room.getTypeOfRoom())) {;
                 reservations.add(new Reservation(nameClient,checkInDate,checkOutDate,room));
                 return;
             }
@@ -59,9 +58,9 @@ public class Hotel {
     }
 
     public void searchRoomsAvailableForDate(LocalDate checkInDate, LocalDate checkOutDate){
-        for (Room room: rooms) {
-            if (!room.isThisReserved()) {
-                System.out.println(room);
+        for (Reservation reservation: reservations) {
+            if (reservation.getCheckInDate().isAfter(checkInDate) && reservation.getCheckOutDate().isBefore(checkOutDate)){
+                System.out.println(reservation);
             }
         }
     }
