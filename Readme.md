@@ -1,4 +1,4 @@
-### 1. Casa - Sala - Cuina (_home_)
+### 1. Casa - Sala - Cuina (_[home](src/home)_)
 
 Defineix tres classes: Casa, Sala, Cuina.
 
@@ -14,7 +14,7 @@ Defineix tres classes: Casa, Sala, Cuina.
   cases de diferents tipologies i després mostra com es creen els resultats. (Pots fer
   ús del mètode toString() que pots definir a totes les classes).
 
-### 2. Gestió Institut(_institutmanagement_)
+### 2. Gestió Institut (_[institutmanagement](src/institutmanagement)_)
 
 Es vol fer un mini gestor per un institut per controlar els alumnes, els mòduls als que
 està matriculat un alumne i les seves notes. Guardarem:
@@ -29,7 +29,7 @@ està matriculat un alumne i les seves notes. Guardarem:
 - extreuModulsSuspesos: Donat el Dni d'un alumne, n'extreu els mòduls que
   ha suspès.
 
-### 3. Ferries - Camions (ferriesmanagement)
+### 3. Ferries - Camions (_[ferriesmanagement](src/ferriesmanagement)_)
 
 Volem gestionar certa informació associada als ferries que transporten camions
 entre dos ports.
@@ -57,7 +57,7 @@ La informació rellevant relativa als ferries és:
 6. Determinar l'import del peatge d'un camió.
 7. Determinar el peatge total recaptat.
 
-### 4. Telefonia  (telephony)
+### 4. Telefonia  (_[telephony](src/telephony)_)
 
 Una empresa de telefonia mòbil vol un programa per a gestionar la facturació de les
 trucades de veu dels seus clients. El preu de les trucades es calcula en funció d'un
@@ -76,7 +76,7 @@ Volem dissenyar i escriure un programa que pugui efectuar les operacions següen
   total).
   ![ModelRelationTelephony](src/telephony/modelRelation.png).
 
-### 5. Contractes (managementcompany)
+### 5. Contractes (_[managementcompany](src/managementcompany)_)
 
 Volem gestionar certa informació associada als contractes de persones que
 treballen en empreses.
@@ -102,7 +102,7 @@ treballen en empreses.
 
   ![ModelRelationCompany](src/managementcompany/managementcompany.png).
 
-### 6. Consultoris mèdics (medicalappointmentmanagement)
+### 6. Consultoris mèdics (_[medicalappointmentmanagement](src/medicalappointmentmanagement)_)
 
 Volem gestionar certa informació associada a la programació de visites en
 consultoris mèdics.
@@ -125,7 +125,7 @@ consultoris mèdics.
 _Nota: No es podrà programar un visita si n'hi ha una altra a la mateixa data i hora o
 si es solapen en un interval de 30 minuts._
 
-### 7. Simulador de gestió de reserves en un hotel (hotelreservationmanagement)
+### 7. Simulador de gestió de reserves en un hotel (_[hotelreservationmanagement](src/hotelreservationmanagement)_)
 
 Desenvolupa un sistema per gestionar les reserves d'habitacions en un hotel. Cada
 habitació té un tipus (simple, doble, suite) i pot tenir diversos serveis associats (wifi,
@@ -148,7 +148,7 @@ minibar, aire condicionat). Utilitza composició per modelar aquestes relacions.
     - Mostrar tots els serveis disponibles per a una habitació.
     - Saber si en una data concreta una habitació concreta està reservada o no.
 
-### 8. Desastres sísmics
+### 8. Desastres sísmics (_[earthquakedatamanagement](src/earthquakedatamanagement)_)
 
 Descripció: Crea un sistema per gestionar les dades dels terratrèmols. Utilitza la
 composició per relacionar terratrèmols amb les seves ubicacions, intensitats i
@@ -171,7 +171,32 @@ víctimes.
     - Mostrar les víctimes d'un terratrèmol concret.
     - Mostrar la magnitud d'un terratrèmol i la localització geogràfica.
 
+### 9. Sistema de monitoratge d’inundacions (_[floodmonitoringsystem](src/floodmonitoringsystem)_)
 
+Descripció: Desenvolupa un sistema per monitoritzar les inundacions en una regió i
+coordinar les respostes d'emergència. Utilitza la composició per modelar
+inundacions, zones d'evacuació, i equips d'emergència.
 
+- **Requisits:**
+    - Unsistema de monitoratge recull dades d'inundació com la profunditat de
+      l'aigua i les àrees afectades.
+    - Unainundació té una profunditat d'aigua, una data, una llista de zones
+      d'evacuació i llistes d'equips d'emergència.
+    - Cadazonad'evacuació té un nom i una capacitat d'acollida.
+    - Elsequips d'emergència poden ser de rescat o de suport (salvament,
+      assistència mèdica, etc.).
+    - Elsistema ha de permetre generar alertes per a les zones d'evacuació quan
+      la profunditat de l’aigua supera un cert llindar.
+- **Classes:**
+    - Inundació: té atributs per profunditat d’aigua, data, zones d’evacuació i equips
+      d’emergència.
+    - ZonaEvacuació: té un nom, capacitat d’acollida i llista de persones evacuades.
+    - EquipEmergència: té un nom, tipus (rescat, assistència mèdica) i una llista de
+      membres.
+- **Funcionalitats:**
+    - Generar alertes per a les zones d’evacuació quan el nivell de l’aigua és
+      perillós.
+    - Mostrar les zones d’evacuació afectades per una inundació.
+    - Coordinar els equips d’emergència per a cada zona d’evacuació
 
 
