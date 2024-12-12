@@ -48,19 +48,25 @@ public class Hotel {
         this.reservations = reservations;
     }
 
-    public void searchThisRoom(String typeOfRoomYouWant, String nameClient, LocalDate checkInDate, LocalDate checkOutDate){
+    public void addNewReservation(String typeOfRoomYouWant, String nameClient, LocalDate checkInDate, LocalDate checkOutDate){
         for (Room room: rooms){
-            if (typeOfRoomYouWant.equals(room.getTypeOfRoom())) {;
+            if (room.getTypeOfRoom().equals(typeOfRoomYouWant)){
                 reservations.add(new Reservation(nameClient,checkInDate,checkOutDate,room));
-                return;
             }
         }
     }
 
     public void searchRoomsAvailableForDate(LocalDate checkInDate, LocalDate checkOutDate){
+        var numberRoomNotAvailable = 0;
+
         for (Reservation reservation: reservations) {
-            if (reservation.getCheckInDate().isAfter(checkInDate) && reservation.getCheckOutDate().isBefore(checkOutDate)){
-                System.out.println(reservation);
+            if (!(reservation.getCheckInDate().isAfter(checkInDate) || reservation.getCheckOutDate().isBefore(checkOutDate))){
+                numberRoomNotAvailable = reservation.getRoom().getNumberRoom();
+            }
+        }
+        for (Room room: rooms){
+            if (!(room.getNumberRoom()==numberRoomNotAvailable)){
+                System.out.println(room);
             }
         }
     }

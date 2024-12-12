@@ -46,6 +46,14 @@ public class Room {
         }
     }
 
+    public int getNumberRoom() {
+        return numberRoom;
+    }
+
+    public void setNumberRoom(int numberRoom) {
+        this.numberRoom = numberRoom;
+    }
+
     public String getTypeOfRoom() {
         return typeOfRoom;
     }
@@ -61,7 +69,6 @@ public class Room {
     public void setServices(ArrayList<Service> services) {
         this.services = services;
     }
-
 
     @Override
     public String toString() {
