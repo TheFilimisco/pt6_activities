@@ -18,7 +18,6 @@ public class TestHotel {
 
 
         Hotel hotel = new Hotel();
-
         Scanner input = new Scanner(System.in);
         var running = true;
 
@@ -49,17 +48,19 @@ public class TestHotel {
                     System.out.println("Put the Check-out-date(YYYY-MM-DD): ");
                     String inputDateTimeSecond = input.nextLine();
                     LocalDate dateSecond = LocalDate.parse(inputDateTimeSecond, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
-                    hotel.searchThisRoom(inputKindOfRoom,inputYourName,dateFirst,dateSecond);
-                    System.out.println(hotel.getReservations());
-                    System.out.println(hotel.getRooms());
-
+                    hotel.addNewReservation(inputKindOfRoom,inputYourName,dateFirst,dateSecond);
                     break;
                 case 2:
                     input.nextLine();
                     System.out.println("=================Search Available Rooms=========");
+                    System.out.println("Put the Check-in-date(YYYY-MM-DD): ");
+                    String searchFirstDate = input.nextLine();
+                    LocalDate firstDate = LocalDate.parse(searchFirstDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
 
-
-
+                    System.out.println("Put the Check-out-date(YYYY-MM-DD): ");
+                    String searchSecondtDate = input.nextLine();
+                    LocalDate secondDate = LocalDate.parse(searchSecondtDate, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+                    hotel.searchRoomsAvailableForDate(firstDate,secondDate);
                     break;
                 case 5:
                     System.out.println("Leave...");
