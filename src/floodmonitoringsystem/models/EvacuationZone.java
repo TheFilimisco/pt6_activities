@@ -5,12 +5,23 @@ import java.util.ArrayList;
 public class EvacuationZone {
     private String nameZone;
     private int limitCapacity;
-    ArrayList<String> evacuatedPeople;
+    private ArrayList<String> evacuatedPeople;
 
-    public EvacuationZone(String nameZone, int limitCapacity, ArrayList<String> evacuatedPeople) {
+
+    public EvacuationZone(String nameZone, int limitCapacity, String victimName) {
         this.nameZone = nameZone;
         this.limitCapacity = limitCapacity;
-        this.evacuatedPeople = evacuatedPeople;
+        evacuatedPeople = new ArrayList<>();
+        evacuatedPeople.add(victimName);
+    }
+
+    public void addPerson(String personName) {
+        if (evacuatedPeople.size() < limitCapacity) {
+            evacuatedPeople.add(personName);
+            System.out.println("Successful!");
+        } else {
+            System.out.println("Don't its possible! ");
+        }
     }
 
     public String getNameZone() {

@@ -16,7 +16,7 @@ public class EmergencyTeam {
             listOfMembers.add("RescueBoss");
             listOfMembers.add("RescueDog");
 
-        } else if (typeOfEmergencyTeam.equals("asistence")) {
+        } else if (typeOfEmergencyTeam.equals("assistance")) {
             this.typeOfEmergencyTeam = typeOfEmergencyTeam;
             this.listOfMembers = new ArrayList<String>();
             listOfMembers.add("nurse");
