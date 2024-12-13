@@ -199,4 +199,28 @@ inundacions, zones d'evacuació, i equips d'emergència.
     - Mostrar les zones d’evacuació afectades per una inundació.
     - Coordinar els equips d’emergència per a cada zona d’evacuació
 
+### 10. Vehicles (herència) (_[vehicles](src/vehicles)_)
 
+Es pretén desenvolupar una aplicació que permet calcular els preus de lloguer d’una
+empresa de lloguer de vehicles. Cada vehicle s’identifica per la seva matrícula.
+La empresa lloga diferents tipus de vehicles, tant per transport de persones com de
+càrrega. En l’actualitat, els vehicles llogats per la empresa són: cotxes, microbusos,
+furgonetes de càrrega i camions.
+
+El preu del lloguer de qualsevol vehicle té una component base que depèn dels dies
+de lloguer a raó de 10€ per dia.
+
+- Enelcasdelloguer d’un cotxe, al preu base se li suma la quantitat de 1.5€
+  per plaça i dia.
+- Elpreu de lloguer del microbusos és igual que el dels cotxes, però se li
+  afegeix una quantitat de 2€ per plaça independentment dels dies de lloguer.
+- Elpreu dels vehicles de càrrega és el preu base més 20€ * PMA (on PMA És
+  el pes màxim
+- autoritzats en tones).
+- Amésamés,encasdels camions, al preu se li suma un fixe de 40€
+  independentment dels dies de lloguer.
+  Les operacions que el empleat de l’ empresa de lloguer ha de poder realitzar són les
+  següents:
+
+    1. Afegir un vehicle.
+    2. Obtenir el preu del vehicle
