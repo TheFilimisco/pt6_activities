@@ -22,6 +22,7 @@ public class ManagementEarthquake {
         this.earthquakes = earthquakes;
     }
 
+    //addDate
     public void getVictimsOfEarthquake(Earthquake earthquake) {
         for (Earthquake earthquakeIterator : earthquakes) {
             if (earthquake.equals(earthquakeIterator)) {

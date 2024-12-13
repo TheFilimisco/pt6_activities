@@ -25,24 +25,28 @@ public class Room {
 
     public Room(String typeOfRoom) {
         this.numberRoom = counterRoom++;
-        if (typeOfRoom.equals("simple")){
-            this.typeOfRoom = typeOfRoom;
-            services = new ArrayList<>();
-            services.add(new Service("wifi"));
-            services.add(new Service("a/c"));
-        } else if (typeOfRoom.equals("double")) {
-            this.typeOfRoom = typeOfRoom;
-            services = new ArrayList<>();
-            services.add(new Service("wifi"));
-            services.add(new Service("a/c"));
-            services.add(new Service("minibar"));
-        } else if (typeOfRoom.equals("suite")) {
-            this.typeOfRoom = typeOfRoom;
-            services = new ArrayList<>();
-            services.add(new Service("wifi"));
-            services.add(new Service("a/c"));
-            services.add(new Service("minibar"));
-            services.add(new Service("buffet"));
+        switch (typeOfRoom) {
+            case "simple" -> {
+                this.typeOfRoom = typeOfRoom;
+                services = new ArrayList<>();
+                services.add(new Service("wifi"));
+                services.add(new Service("a/c"));
+            }
+            case "double" -> {
+                this.typeOfRoom = typeOfRoom;
+                services = new ArrayList<>();
+                services.add(new Service("wifi"));
+                services.add(new Service("a/c"));
+                services.add(new Service("minibar"));
+            }
+            case "suite" -> {
+                this.typeOfRoom = typeOfRoom;
+                services = new ArrayList<>();
+                services.add(new Service("wifi"));
+                services.add(new Service("a/c"));
+                services.add(new Service("minibar"));
+                services.add(new Service("buffet"));
+            }
         }
     }
 

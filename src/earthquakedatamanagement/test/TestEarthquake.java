@@ -41,6 +41,7 @@ public class TestEarthquake {
         Earthquake earthquakeMadrid = new Earthquake(locationMadrid, 7.2, LocalDate.of(2023, 12, 2), victimsMadrid);
 
         ArrayList<Earthquake> earthquakes = new ArrayList<>();
+
         earthquakes.add(earthquakeBarcelona);
         earthquakes.add(earthquakeMadrid);
 
